@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dita's QA Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 10px rgba(168, 85, 247, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(168, 85, 247, 0.8); }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        @keyframes typewriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        .float-animate { animation: float 3s ease-in-out infinite; }
+        .glow-animate { animation: glow 2s ease-in-out infinite; }
+        .pulse-animate { animation: pulse 2s ease-in-out infinite; }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid #a855f7;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .10em;
+            animation: typewriter 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #a855f7; }
+        }
+
+        /* Section reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #a855f7;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .project-card:hover {
+            border-left-color: #a855f7;
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+<body class="relative min-h-screen flex flex-col text-white">
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full bg-gray-900/80 backdrop-blur-lg z-50 py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="text-xl font-bold text-purple-400">Dita's Portfolio</div>
+            <ul class="flex space-x-8">
+                <li><a href="#hero" class="nav-link text-white hover:text-purple-400 transition">Home</a></li>
+                <li><a href="#projects" class="nav-link text-white hover:text-purple-400 transition">Projects</a></li>
+                <li><a href="#contact" class="nav-link text-white hover:text-purple-400 transition">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative flex flex-col items-center justify-center min-h-screen px-6 pt-20 text-center reveal">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="relative z-10 max-w-3xl">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 text-purple-400">QA Engineer Portfolio</h1>
+            <div class="typewriter text-xl md:text-2xl text-gray-300 mb-8">Quality is not an act, it's a habit 🚀</div>
+            <a href="#projects" class="inline-block bg-purple-600 hover:bg-purple-700 px-8 py-3 rounded-full font-semibold transition pulse-animate">
+                Explore My Work <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 float-animate">
+            <a href="#projects" class="text-white text-4xl"><i class="fas fa-chevron-down"></i></a>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="relative py-20 bg-gray-900/50 reveal">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-16 text-center text-purple-400">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="project-card bg-gray-800/60 backdrop-blur-lg rounded-xl p-6 glow-animate">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center mr-4">
+                            <i class="fas fa-recycle text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-purple-400">E-Waste App</h3>
+                    </div>
+                    <p class="text-gray-300">Aplikasi antar jemput sampah elektronik yang terintegrasi dengan e-commerce kompos. Membantu daur ulang dengan teknologi modern.</p>
+                </div>
+
+                <div class="project-card bg-gray-800/60 backdrop-blur-lg rounded-xl p-6 glow-animate">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center mr-4">
+                            <i class="fas fa-comments text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-purple-400">Sawala App</h3>
+                    </div>
+                    <p class="text-gray-300">Aplikasi menfess & chatbot kampus untuk memudahkan komunikasi dan berbagi informasi antar mahasiswa.</p>
+                </div>
+
+                <div class="project-card bg-gray-800/60 backdrop-blur-lg rounded-xl p-6 glow-animate">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center mr-4">
+                            <i class="fas fa-pencil-ruler text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-purple-400">Eleanor UI</h3>
+                    </div>
+                    <p class="text-gray-300">Desain UI e-commerce alat tulis menggunakan Figma. Fokus pada clean design dan user-friendly interface.</p>
+                </div>
+
+                <div class="project-card bg-gray-800/60 backdrop-blur-lg rounded-xl p-6 glow-animate">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center mr-4">
+                            <i class="fas fa-lock text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-purple-400">ChatCorp</h3>
+                    </div>
+                    <p class="text-gray-300">Aplikasi chat perusahaan dengan keamanan tinggi, mendukung enkripsi AES-256-CBC & autentikasi 2FA.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="relative py-20 bg-gray-900/80 reveal">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-10 text-purple-400">Get in Touch 📬</h2>
+            <p class="text-gray-300 mb-8 max-w-2xl mx-auto">Feel free to reach out through my socials. I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="https://linkedin.com/in/shifaeldita" target="_blank" 
+                   class="w-14 h-14 rounded-full bg-purple-600 flex items-center justify-center text-white hover:bg-purple-700 transition">
+                    <i class="fab fa-linkedin-in text-xl"></i>
+                </a>
+                <a href="https://github.com/aru18217" target="_blank" 
+                   class="w-14 h-14 rounded-full bg-purple-600 flex items-center justify-center text-white hover:bg-purple-700 transition">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+                <a href="mailto:eldita.shifa@gmail.com" 
+                   class="w-14 h-14 rounded-full bg-purple-600 flex items-center justify-center text-white hover:bg-purple-700 transition">
+                    <i class="fas fa-envelope text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative py-6 bg-gray-900 text-gray-400 text-sm text-center">
+        <div class="container mx-auto px-6">
+            &copy; <span id="currentYear"></span> Dita's Portfolio - All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Set current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Reveal on scroll functionality
+        const reveals = document.querySelectorAll('.reveal');
+        window.addEventListener('scroll', () => {
+            for (let i = 0; i < reveals.length; i++) {
+                let windowHeight = window.innerHeight;
+                let elementTop = reveals[i].getBoundingClientRect().top;
+                let elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        });
+        
+        // Activate hero section on load
+        window.addEventListener('load', () => {
+            document.querySelector('#hero').classList.add('active');
+            
+            // Add slight delay to typewriter effect
+            setTimeout(() => {
+                document.querySelector('.typewriter').style.animation = 'none';
+                setTimeout(() => {
+                    document.querySelector('.typewriter').style.animation = 'typewriter 3.5s steps(40, end), blink-caret .75s step-end infinite';
+                }, 10);
+            }, 3500);
+        });
+    </script>
+</body>
+</html>
