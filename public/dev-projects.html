@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Software Development - Dita</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0); }
+    }
+    @keyframes glowBtn {
+      0%, 100% { box-shadow: 0 0 10px #a855f7, 0 0 20px #9333ea; }
+      50% { box-shadow: 0 0 25px #c084fc, 0 0 45px #a855f7; }
+    }
+    @keyframes glowText {
+      0%, 100% { text-shadow: 0 0 10px #a855f7, 0 0 20px #9333ea; }
+      50% { text-shadow: 0 0 25px #c084fc, 0 0 45px #a855f7; }
+    }
+    .text-glow {
+      display: inline-block;
+      animation: glowText 3s ease-in-out infinite;
+    }
+    .back-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: #9333ea;
+      color: white;
+      font-weight: bold;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      animation: float 3s ease-in-out infinite, glowBtn 2s ease-in-out infinite;
+      z-index: 50;
+    }
+  </style>
+</head>
+<body class="relative min-h-screen text-white" style="background: url('assets/images/bg1.gif') no-repeat center center fixed; background-size: cover;">
+  <div class="absolute inset-0 bg-black/70"></div>
+  <a href="index.html" class="back-btn">←</a>
+
+  <div class="relative z-10 container mx-auto px-6 py-16">
+    <h1 class="text-4xl font-bold mb-12 text-center text-white-400">
+      <span class="text-glow">Software Development 🚀</span>
+    </h1>
+
+    <section class="mb-16 reveal">
+      <h2 class="text-2xl font-semibold mb-6 text-purple-300">Web Applications</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl p-6">
+          <h3 class="font-bold text-purple-400">Bookshelf App</h3>
+          <p class="text-gray-300 mt-2">CRUD project using JavaScript with localStorage. Manage books collection effectively.</p>
+          <span class="inline-block mt-3 px-3 py-1 bg-purple-600/40 rounded-full text-sm">JavaScript</span>
+        </div>
+        <div class="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl p-6">
+          <h3 class="font-bold text-purple-400">Portfolio Website</h3>
+          <p class="text-gray-300 mt-2">Personal portfolio with Laravel + TailwindCSS, animated starry background, sections for Profile & Projects.</p>
+          <span class="inline-block mt-3 px-3 py-1 bg-purple-600/40 rounded-full text-sm">Laravel</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-16 reveal">
+      <h2 class="text-2xl font-semibold mb-6 text-purple-300">Mobile Applications</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl p-6">
+          <h3 class="font-bold text-purple-400">Stop Motion Animation App</h3>
+          <p class="text-gray-300 mt-2">Built for competition, allowing users to create stop-motion animations with simple UI.</p>
+          <span class="inline-block mt-3 px-3 py-1 bg-purple-600/40 rounded-full text-sm">Android</span>
+        </div>
+        <div class="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl p-6">
+          <h3 class="font-bold text-purple-400">Eduprima Tutoring Platform</h3>
+          <p class="text-gray-300 mt-2">Tutoring platform concept app with student-tutor scheduling & communication features.</p>
+          <span class="inline-block mt-3 px-3 py-1 bg-purple-600/40 rounded-full text-sm">Flutter</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <h2 class="text-2xl font-semibold mb-6 text-purple-300">API Integrations</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl p-6">
+          <h3 class="font-bold text-purple-400">News API Project</h3>
+          <p class="text-gray-300 mt-2">Fetching latest Tesla news with <code>newsapi.org</code> & displaying in web app.</p>
+          <span class="inline-block mt-3 px-3 py-1 bg-purple-600/40 rounded-full text-sm">REST API</span>
+        </div>
+        <div class="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl p-6">
+          <h3 class="font-bold text-purple-400">Automation Script</h3>
+          <p class="text-gray-300 mt-2">Task Scheduler script for automatic file backup across PCs in the same network.</p>
+          <span class="inline-block mt-3 px-3 py-1 bg-purple-600/40 rounded-full text-sm">Python</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="relative z-10 py-6 text-gray-400 text-sm text-center mt-20">
+    &copy; 2023 Dita's Portfolio - Software Development
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    window.addEventListener('scroll', () => {
+      for (let i = 0; i < reveals.length; i++) {
+        let windowHeight = window.innerHeight;
+        let elementTop = reveals[i].getBoundingClientRect().top;
+        let elementVisible = 100;
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        }
+      }
+    });
+    window.addEventListener('load', () => {
+      reveals[0].classList.add("active");
+    });
+  </script>
+</body>
+</html>

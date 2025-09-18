@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dita's IT Admin Projects</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .text-glow {
+            animation: glowText 3s ease-in-out infinite;
+        }
+        @keyframes glowText {
+            0%, 100% { text-shadow: 0 0 10px #a855f7, 0 0 20px #9333ea; }
+            50% { text-shadow: 0 0 25px #c084fc, 0 0 45px #a855f7; }
+        }
+        @keyframes floaty {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+        @keyframes glowBtn {
+            0%, 100% { box-shadow: 0 0 15px rgba(168,85,247,0.6); }
+            50% { box-shadow: 0 0 30px rgba(168,85,247,1); }
+        }
+        .back-float {
+            animation: glowBtn 2.5s ease-in-out infinite, floaty 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen text-white" style="background: url('assets/images/bg1.gif') no-repeat center center fixed; background-size: cover;">
+    <div class="absolute inset-0 bg-black/70"></div>
+
+    <a href="index.html" class="fixed top-6 left-6 z-50 w-12 h-12 flex items-center justify-center rounded-full bg-purple-600 text-white shadow-lg hover:bg-purple-700 transition transform hover:scale-110 back-float">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+    </a>
+
+    <div class="relative z-10 container mx-auto px-6 py-16">
+        <h1 class="text-4xl font-bold mb-12 text-center text-white-400 text-glow">IT Admin Projects 🖥️</h1>
+
+        <section class="mb-20 reveal">
+            <h2 class="text-2xl font-semibold mb-6 text-purple-300">Network & Infrastructure</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 shadow-xl">
+                    <h3 class="text-xl font-bold text-blue-300">Campus Network Design</h3>
+                    <p class="text-gray-200 mt-2">
+                        Merancang topologi jaringan dengan kabel UTP CS30CM, router Mikrotik, dan access point 
+                        untuk mendukung sistem akademik kampus.
+                    </p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 shadow-xl">
+                    <h3 class="text-xl font-bold text-blue-300">Firewall & Security Rules</h3>
+                    <p class="text-gray-200 mt-2">
+                        Implementasi <strong>firewall rules</strong>, VLAN segmentation, dan monitoring traffic 
+                        menggunakan <em>IBM QRadar</em> untuk deteksi anomali.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-20 reveal">
+            <h2 class="text-2xl font-semibold mb-6 text-purple-300">System Administration</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 shadow-xl">
+                    <h3 class="text-xl font-bold text-green-300">User Management</h3>
+                    <p class="text-gray-200 mt-2">
+                        Setup Active Directory, manajemen user & permission, serta integrasi autentikasi 
+                        menggunakan <strong>LDAP</strong>.
+                    </p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 shadow-xl">
+                    <h3 class="text-xl font-bold text-green-300">Server Maintenance</h3>
+                    <p class="text-gray-200 mt-2">
+                        Menangani instalasi & update server berbasis Linux/Windows, backup otomatis, 
+                        serta task scheduling menggunakan <code>cron jobs</code> & Windows Task Scheduler.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-20 reveal">
+            <h2 class="text-2xl font-semibold mb-6 text-purple-300">Monitoring & Reports</h2>
+            <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 shadow-xl">
+                <p class="text-gray-200">
+                    Membuat laporan penggunaan jaringan, error log server, serta analisis aktivitas 
+                    mencurigakan dengan dashboard monitoring berbasis Grafana & QRadar.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <footer class="relative z-10 py-6 text-gray-400 text-sm text-center mt-20">
+        &copy; 2023 Dita's Portfolio - IT Admin Projects
+    </footer>
+
+    <script>
+        const reveals = document.querySelectorAll('.reveal');
+        window.addEventListener('scroll', () => {
+            for (let i = 0; i < reveals.length; i++) {
+                let windowHeight = window.innerHeight;
+                let elementTop = reveals[i].getBoundingClientRect().top;
+                let elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        });
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.reveal')[0].classList.add("active");
+        });
+    </script>
+</body>
+</html>
